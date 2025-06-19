@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Saint Patrice Médical</title>
+    <title>Contact - Saint Patrice Médical</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,111 +13,23 @@
             <a href="index.html">Accueil</a>
             <a href="apropos.html">À propos</a>
             <a href="services.html">Nos Services</a>
-            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="active">Contact</a>
         </nav>
     </header>
-
-    <section id="onglets">
-        <div class="tabs">
-            <div class="tab-buttons">
-                <a href="#tab-apropos" class="tab-btn active" data-tab="tab-apropos">À propos</a>
-                <a href="#tab-services" class="tab-btn" data-tab="tab-services">Nos Services</a>
-                <a href="#tab-contact" class="tab-btn" data-tab="tab-contact">Contact</a>
-            </div>
-            <div class="tab-content active" id="tab-apropos">
-                <h2>À propos</h2>
-                <p>Située au cœur de Bayeux, Saint Patrice Médical propose depuis plusieurs années du matériel médical à la vente et à la location, ainsi qu’un accompagnement personnalisé pour les particuliers et professionnels de santé.</p>
-                <a href="apropos.html" class="tab-page-link">Voir la page dédiée</a>
-            </div>
-            <div class="tab-content" id="tab-services">
-                <h2>Nos Services</h2>
-                <ul>
-                    <li>Vente et location de matériel médical</li>
-                    <li>Livraison à domicile</li>
-                    <li>Conseil personnalisé</li>
-                    <li>Assistance technique</li>
-                </ul>
-                <a href="services.html" class="tab-page-link">Voir la page dédiée</a>
-            </div>
-            <div class="tab-content" id="tab-contact">
-                <h2>Contact</h2>
-                <p>13 Rue Saint Patrice, 14400 Bayeux<br />
-                02.31.22.22.22<br />
-                <a href="mailto:ines@bayeuxpharma.com">ines@bayeuxpharma.com</a></p>
-                <form action="https://formspree.io/f/mwkgyvpl" method="POST">
-                    <input type="text" name="name" placeholder="Nom" required />
-                    <input type="email" name="_replyto" placeholder="Email" required />
-                    <textarea name="message" placeholder="Message" required></textarea>
-                    <button type="submit">Envoyer</button>
-                </form>
-                <a href="contact.html" class="tab-page-link">Voir la page dédiée</a>
-            </div>
-        </div>
-    </section>
-
+    <main>
+        <h1>Contact</h1>
+        <p>13 Rue Saint Patrice, 14400 Bayeux<br />
+        02.31.22.22.22<br />
+        <a href="mailto:ines@bayeuxpharma.com">ines@bayeuxpharma.com</a></p>
+        <form action="https://formspree.io/f/mwkgyvpl" method="POST">
+            <input type="text" name="name" placeholder="Nom" required />
+            <input type="email" name="_replyto" placeholder="Email" required />
+            <textarea name="message" placeholder="Message" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </main>
     <footer>
         &copy; 2025 Saint Patrice Médical. Tous droits réservés.
     </footer>
-
-    <!-- SCRIPT TABS -->
-    <script>
-    document.querySelectorAll('.tabs').forEach(function(tabContainer) {
-        const buttons = tabContainer.querySelectorAll('.tab-btn');
-        const contents = tabContainer.querySelectorAll('.tab-content');
-        buttons.forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                buttons.forEach(b => b.classList.remove('active'));
-                contents.forEach(c => c.classList.remove('active'));
-                btn.classList.add('active');
-                const tabId = btn.getAttribute('data-tab');
-                tabContainer.querySelector('#' + tabId).classList.add('active');
-            });
-        });
-    });
-    </script>
 </body>
 </html>
-.tabs {
-    margin-top: 20px;
-}
-.tab-buttons {
-    display: flex;
-    gap: 10px;
-}
-.tab-btn {
-    padding: 10px 20px;
-    border: none;
-    background: #f0f0f0;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 5px 5px 0 0;
-    transition: background 0.2s;
-    color: inherit;
-    text-decoration: none;
-}
-.tab-btn.active {
-    background: #4b9cd3;
-    color: #fff;
-}
-.tab-content {
-    display: none;
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-top: none;
-    background: #fafafa;
-    border-radius: 0 0 5px 5px;
-}
-.tab-content.active {
-    display: block;
-}
-.tab-page-link {
-    display: inline-block;
-    margin-top: 10px;
-    color: #4b9cd3;
-    text-decoration: underline;
-    font-size: 0.95em;
-}
-.tab-page-link:hover {
-    color: #2176ae;
-}
