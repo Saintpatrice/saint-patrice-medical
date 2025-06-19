@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -24,9 +23,25 @@
         <p>Votre partenaire santé à Bayeux. Nous vous accompagnons avec du matériel médical de qualité et des services adaptés à vos besoins.</p>
     </section>
 
+    <!-- Onglets interactifs dans la section À propos -->
     <section id="apropos">
         <h2>À propos</h2>
-        <p>Située au cœur de Bayeux, Saint Patrice Médical propose depuis plusieurs années du matériel médical à la vente et à la location, ainsi qu’un accompagnement personnalisé pour les professionnels de santé et les particuliers.</p>
+        <div class="tabs">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="tab1">Notre Histoire</button>
+                <button class="tab-btn" data-tab="tab2">Équipe</button>
+                <button class="tab-btn" data-tab="tab3">Valeurs</button>
+            </div>
+            <div class="tab-content active" id="tab1">
+                <p>Située au cœur de Bayeux, Saint Patrice Médical propose depuis plusieurs années du matériel médical à la vente et à la location, ainsi qu’un accompagnement personnalisé pour les particuliers et professionnels de santé.</p>
+            </div>
+            <div class="tab-content" id="tab2">
+                <p>Notre équipe est composée de professionnels qualifiés, à votre écoute pour vous conseiller et vous accompagner.</p>
+            </div>
+            <div class="tab-content" id="tab3">
+                <p>Nous plaçons l’humain, la proximité et la qualité au centre de notre engagement.</p>
+            </div>
+        </div>
     </section>
 
     <section id="services">
@@ -55,5 +70,56 @@
     <footer>
         &copy; 2025 Saint Patrice Médical. Tous droits réservés.
     </footer>
+
+    <!-- SCRIPT TABS -->
+    <script>
+    document.querySelectorAll('.tabs').forEach(function(tabContainer) {
+        const buttons = tabContainer.querySelectorAll('.tab-btn');
+        const contents = tabContainer.querySelectorAll('.tab-content');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                buttons.forEach(b => b.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+                const tabId = btn.getAttribute('data-tab');
+                tabContainer.querySelector('#' + tabId).classList.add('active');
+            });
+        });
+    });
+    </script>
 </body>
 </html>
+2. À ajouter dans style.css (en bas du fichier, par exemple)
+CSS
+/* Onglets interactifs */
+.tabs {
+    margin-top: 20px;
+}
+.tab-buttons {
+    display: flex;
+    gap: 10px;
+}
+.tab-btn {
+    padding: 10px 20px;
+    border: none;
+    background: #f0f0f0;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+    transition: background 0.2s;
+}
+.tab-btn.active {
+    background: #4b9cd3;
+    color: #fff;
+}
+.tab-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+    background: #fafafa;
+    border-radius: 0 0 5px 5px;
+}
+.tab-content.active {
+    display: block;
+}
